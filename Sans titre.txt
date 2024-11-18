@@ -1,0 +1,51 @@
+
+To convert the provided ER model into a relational diagram, I will outline the corresponding tables and their relationships based on the entities and relationships in the image.
+
+Relational Diagram Conversion
+1. Hotel
+Table Name: Hotel
+Attributes:
+Hotel_ID (Primary Key)
+Hotel_Name
+2. Type
+Table Name: Type
+Attributes:
+Type_ID (Primary Key)
+Type_Name
+3. Room
+Table Name: Room
+Attributes:
+Room_ID (Primary Key)
+Floor
+Type_ID (Foreign Key referencing Type.Type_ID)
+Category_ID (Foreign Key referencing Category.Category_ID)
+4. Category
+Table Name: Category
+Attributes:
+Category_ID (Primary Key)
+Category_Name
+Price
+Beds_Number
+5. Employee
+Table Name: Employee
+Attributes:
+Employee_ID (Primary Key)
+Employee_Name
+Employee_Specialty
+Hotel_ID (Foreign Key referencing Hotel.Hotel_ID)
+Relationships
+Hotel → Employee
+
+Relationship: 1 Hotel : N Employees
+Implemented via Employee.Hotel_ID as a foreign key.
+Room → Type
+
+Relationship: 1 Type : N Rooms
+Implemented via Room.Type_ID as a foreign key.
+Room → Category
+
+Relationship: 1 Category : N Rooms
+Implemented via Room.Category_ID as a foreign key.
+Employee → Leads → Hotel
+
+Implement the Leads relationship using Employee.Hotel_ID.
